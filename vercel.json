@@ -1,16 +1,9 @@
 {
   "version": 2,
-  "public": true,
-  "builds": [
-    {
-      "src": "dist/angular-assignment/**/*",
-      "use": "@vercel/static"
-    }
-  ],
+  "framework": "angular",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/angular-assignment",
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

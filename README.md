@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ````markdown
 # Angular Client-Side Web Application
@@ -61,3 +62,6 @@ This project is a client-side web application built with Angular 20. It includes
 (https://saisrilaxmi7.github.io/angular_assignment2/)     ```
 
 ---
+=======
+# Angular-Assignment
+>>>>>>> a97ed46f0a351c0023b119ac977bac44389bde5c

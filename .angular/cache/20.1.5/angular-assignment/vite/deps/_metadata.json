@@ -1,55 +1,55 @@
 {
-  "hash": "be078344",
-  "configHash": "2d9a0129",
-  "lockfileHash": "3504070f",
-  "browserHash": "5d456f71",
+  "hash": "f9008404",
+  "configHash": "257c0b59",
+  "lockfileHash": "0f0baef4",
+  "browserHash": "fd002fbc",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "eb75df51",
+      "fileHash": "089bdf0f",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "89c6ab5d",
+      "fileHash": "2ca40b9f",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "91ef6fe9",
+      "fileHash": "734407fc",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "5b1f2b6c",
+      "fileHash": "838b8655",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "ae8e8e9b",
+      "fileHash": "6014e7f5",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "3702cdc1",
+      "fileHash": "74474aff",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "bc4b3c8e",
+      "fileHash": "c7a85c6e",
       "needsInterop": false
     },
     "zone.js": {
       "src": "../../../../../../node_modules/zone.js/fesm2015/zone.js",
       "file": "zone__js.js",
-      "fileHash": "7c801650",
+      "fileHash": "1f128418",
       "needsInterop": true
     }
   },
