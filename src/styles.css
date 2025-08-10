@@ -1,0 +1,116 @@
+:root {
+  --bg: #fef9f4;        /* Soft warm background */
+  --card: #ffffff;      /* White for clean recipe cards */
+  --text: #2f3e46;      /* Deep slate-teal for text */
+  --muted: #6b7b83;     /* Muted cool gray for subtext */
+  --accent: #ff7f50;    /* Coral orange for food accents */
+  --accent2: #f4c430;   /* Soft golden yellow for highlights */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg), #fff3e6);
+  color: var(--text);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+.navbar .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--accent);
+}
+
+.navlinks {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navlinks a {
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  transition: background 0.2s ease;
+}
+.navlinks a.active, .navlinks a:hover {
+  background: rgba(255, 127, 80, 0.15);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 18px rgba(47, 62, 70, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(47, 62, 70, 0.15);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: .75rem .9rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fffdfa;
+  color: var(--text);
+  border-radius: .75rem;
+}
+
+label { display:block; margin-bottom: .35rem; color: var(--muted); }
+
+button {
+  appearance: none;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  padding: .75rem 1rem;
+  border-radius: .75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+button:hover {
+  background: #ff6333;
+}
+
+.error { color: #d64545; font-size: .9rem; margin-top: .35rem; }
+.success { color: var(--accent2); font-size: .95rem; }
+.muted { color: var(--muted); }

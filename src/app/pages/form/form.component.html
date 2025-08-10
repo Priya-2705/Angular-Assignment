@@ -1,0 +1,44 @@
+
+<section class="card">
+  <h2>Feedback Form</h2>
+  <p class="muted">Reactive form with validation. Fields marked * are required.</p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="grid">
+    <div class="card">
+      <label for="name">Name *</label>
+      <input id="name" type="text" formControlName="name" placeholder="Your name" />
+      <div class="error" *ngIf="submitted && f.name.errors">
+        <span *ngIf="f.name.errors['required']">Name is required.</span>
+        <span *ngIf="f.name.errors['minlength']">Name must be at least 2 characters.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <label for="email">Email *</label>
+      <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
+      <div class="error" *ngIf="submitted && f.email.errors">
+        <span *ngIf="f.email.errors['required']">Email is required.</span>
+        <span *ngIf="f.email.errors['email']">Please enter a valid email.</span>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: 1 / -1">
+      <label for="message">Message *</label>
+      <textarea id="message" rows="6" formControlName="message" placeholder="Share your feedback…"></textarea>
+      <div class="error" *ngIf="submitted && f.message.errors">
+        <span *ngIf="f.message.errors['required']">Message is required.</span>
+        <span *ngIf="f.message.errors['minlength']">Message must be at least 10 characters.</span>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: 1 / -1; display:flex; gap:.5rem; align-items:center;">
+      <input id="agree" type="checkbox" formControlName="agree" style="width:auto;" />
+      <label for="agree">I agree to the terms *</label>
+    </div>
+
+    <div style="grid-column: 1 / -1; display:flex; gap:.5rem;">
+      <button type="submit">Submit</button>
+      <span class="muted" *ngIf="submitted && form.valid">Looks good! Submitting…</span>
+    </div>
+  </form>
+</section>

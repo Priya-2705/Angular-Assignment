@@ -1,0 +1,23 @@
+<section class="card">
+  <h2>Recipe Search</h2>
+  <p class="muted">Loaded from <code>themealdb.com</code> via ApiService.</p>
+
+  <input #searchBox type="text" placeholder="Search meals..." />
+  <button (click)="fetch(searchBox.value)">Search</button>
+
+  <div *ngIf="loading">Loading…</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="grid" *ngIf="!loading && !error && meals.length">
+    <article class="card" *ngFor="let meal of meals">
+      <img [src]="meal.strMealThumb" [alt]="meal.strMeal" style="width:100%; border-radius:8px;" />
+      <h3>{{ meal.strMeal }}</h3>
+      <p><strong>Category:</strong> {{ meal.strCategory }} | <strong>Area:</strong> {{ meal.strArea }}</p>
+      <p class="muted">{{ meal.strInstructions | slice:0:120 }}...</p>
+    </article>
+  </div>
+
+  <div *ngIf="!loading && !error && !meals.length">
+    No meals found.
+  </div>
+</section>

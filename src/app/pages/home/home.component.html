@@ -1,0 +1,17 @@
+<section class="card">
+  <h2>Welcome 👋</h2>
+  <p class="muted">Check API data or see recent feedback submissions.</p>
+  <ul>
+    <li><a routerLink="/api" routerLinkActive="active">See API data</a></li>
+    <li><a routerLink="/form" routerLinkActive="active">Submit the form</a></li>
+  </ul>
+</section>
+
+<section class="card" *ngIf="submissions.length > 0">
+  <h3>Recent Feedback</h3>
+  <ul>
+    <li *ngFor="let s of submissions">
+      <strong>{{ s.name }}</strong> ({{ s.email }}): {{ s.message }}
+    </li>
+  </ul>
+</section>
