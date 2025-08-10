@@ -1,17 +1,31 @@
 <section class="card">
-  <h2>Welcome 👋</h2>
+  <h2>Welcome To Marvel World</h2>
   <p class="muted">Check API data or see recent feedback submissions.</p>
-  <ul>
-    <li><a routerLink="/api" routerLinkActive="active">See API data</a></li>
-    <li><a routerLink="/form" routerLinkActive="active">Submit the form</a></li>
+  <ul style="display:flex; gap:.5rem; flex-wrap:wrap; padding-left:0; list-style:none; margin:0;">
+    <li><a class="btn" routerLink="/api" routerLinkActive="active">See API data</a></li>
+    <li><a class="btn" routerLink="/form" routerLinkActive="active">Submit the form</a></li>
   </ul>
 </section>
 
 <section class="card" *ngIf="submissions.length > 0">
   <h3>Recent Feedback</h3>
-  <ul>
+  <ul style="margin:0; padding-left:1rem;">
     <li *ngFor="let s of submissions">
-      <strong>{{ s.name }}</strong> ({{ s.email }}): {{ s.message }}
+      <!-- New Marvel form shape -->
+      <ng-container *ngIf="s.displayName; else legacy">
+        <strong>{{ s.displayName }}</strong>
+        <span *ngIf="s.character"> on <em>{{ s.character }}</em></span>
+        <span *ngIf="s.rating"> — rated {{ s.rating }}/5</span>
+        <div class="muted">{{ s.comment }}</div>
+        <div class="muted" *ngIf="s.email">{{ s.email }}</div>
+      </ng-container>
+
+      <!-- Old form shape fallback -->
+      <ng-template #legacy>
+        <strong>{{ s.name }}</strong>
+        <span *ngIf="s.email">({{ s.email }})</span>:
+        {{ s.message }}
+      </ng-template>
     </li>
   </ul>
 </section>

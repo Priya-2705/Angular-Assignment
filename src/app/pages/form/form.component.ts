@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormDataService } from '../../services/form-data.service';
@@ -10,17 +10,24 @@ import { FormDataService } from '../../services/form-data.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
-  constructor(private fb: FormBuilder, private formDataService: FormDataService) {}
-
+export class FormComponent implements OnInit {
   submitted = false;
+  submissions: any[] = [];
 
   form = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(2)]],
+    displayName: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
-    message: ['', [Validators.required, Validators.minLength(10)]],
+    character: ['', [Validators.required, Validators.minLength(2)]],
+    rating: [5, [Validators.required, Validators.min(1), Validators.max(5)]],
+    comment: ['', [Validators.required, Validators.minLength(15)]],
     agree: [false, [Validators.requiredTrue]]
   });
+
+  constructor(private fb: FormBuilder, private formDataService: FormDataService) {}
+
+  ngOnInit(): void {
+    this.submissions = this.formDataService.getSubmissions();
+  }
 
   get f() { return this.form.controls; }
 
@@ -29,9 +36,10 @@ export class FormComponent {
     if (this.form.invalid) return;
 
     this.formDataService.addSubmission(this.form.value);
-    alert('Thanks! Your feedback has been submitted.');
-    
-    this.form.reset();
+    this.submissions = this.formDataService.getSubmissions();
+    alert('Thanks! Your Marvel feedback has been submitted.');
+
+    this.form.reset({ rating: 5, agree: false });
     this.submitted = false;
   }
 }

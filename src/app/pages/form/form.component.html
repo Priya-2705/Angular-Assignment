@@ -1,15 +1,14 @@
-
 <section class="card">
-  <h2>Feedback Form</h2>
-  <p class="muted">Reactive form with validation. Fields marked * are required.</p>
+  <h2>Marvel Character Feedback</h2>
+  <p class="muted">Share your thoughts about your favourite Marvel hero! Fields marked * are required.</p>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="grid">
     <div class="card">
-      <label for="name">Name *</label>
-      <input id="name" type="text" formControlName="name" placeholder="Your name" />
-      <div class="error" *ngIf="submitted && f.name.errors">
-        <span *ngIf="f.name.errors['required']">Name is required.</span>
-        <span *ngIf="f.name.errors['minlength']">Name must be at least 2 characters.</span>
+      <label for="displayName">Your Name *</label>
+      <input id="displayName" type="text" formControlName="displayName" placeholder="Your name" />
+      <div class="error" *ngIf="submitted && f.displayName.errors">
+        <span *ngIf="f.displayName.errors['required']">Name is required.</span>
+        <span *ngIf="f.displayName.errors['minlength']">Must be at least 2 characters.</span>
       </div>
     </div>
 
@@ -22,23 +21,55 @@
       </div>
     </div>
 
-    <div class="card" style="grid-column: 1 / -1">
-      <label for="message">Message *</label>
-      <textarea id="message" rows="6" formControlName="message" placeholder="Share your feedback…"></textarea>
-      <div class="error" *ngIf="submitted && f.message.errors">
-        <span *ngIf="f.message.errors['required']">Message is required.</span>
-        <span *ngIf="f.message.errors['minlength']">Message must be at least 10 characters.</span>
+    <div class="card">
+      <label for="character">Favourite Marvel Character *</label>
+      <input id="character" type="text" formControlName="character" placeholder="e.g. Iron Man" />
+      <div class="error" *ngIf="submitted && f.character.errors">
+        <span *ngIf="f.character.errors['required']">Character name is required.</span>
+        <span *ngIf="f.character.errors['minlength']">Must be at least 2 characters.</span>
       </div>
     </div>
 
-    <div class="card" style="grid-column: 1 / -1; display:flex; gap:.5rem; align-items:center;">
+    <div class="card">
+      <label for="rating">Rating (1–5) *</label>
+      <input id="rating" type="number" formControlName="rating" min="1" max="5" />
+      <div class="error" *ngIf="submitted && f.rating.errors">
+        <span *ngIf="f.rating.errors['required']">Rating is required.</span>
+        <span *ngIf="f.rating.errors['min'] || f.rating.errors['max']">Must be between 1 and 5.</span>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: 1 / -1">
+      <label for="comment">Your Feedback *</label>
+      <textarea id="comment" rows="5" formControlName="comment" placeholder="What do you think about this character?"></textarea>
+      <div class="error" *ngIf="submitted && f.comment.errors">
+        <span *ngIf="f.comment.errors['required']">Feedback is required.</span>
+        <span *ngIf="f.comment.errors['minlength']">Must be at least 15 characters.</span>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: 1 / -1; display:flex; align-items:center; gap:.5rem;">
       <input id="agree" type="checkbox" formControlName="agree" style="width:auto;" />
       <label for="agree">I agree to the terms *</label>
     </div>
 
     <div style="grid-column: 1 / -1; display:flex; gap:.5rem;">
-      <button type="submit">Submit</button>
-      <span class="muted" *ngIf="submitted && form.valid">Looks good! Submitting…</span>
+      <button type="submit">Submit Feedback</button>
+      <span class="muted" *ngIf="submitted && form.valid">Thanks! Saving your feedback…</span>
     </div>
   </form>
+</section>
+
+<!-- Recent Feedback Section -->
+<section class="card" *ngIf="submissions.length > 0" style="margin-top:1rem;">
+  <h3>Recent Marvel Feedback</h3>
+  <ul>
+    <li *ngFor="let s of submissions">
+      <strong>{{ s.displayName }}</strong>
+      <span *ngIf="s.character"> on <em>{{ s.character }}</em></span>
+      <span *ngIf="s.rating"> — rated {{ s.rating }}/5</span>
+      <div class="muted">{{ s.comment }}</div>
+      <div class="muted" *ngIf="s.email">{{ s.email }}</div>
+    </li>
+  </ul>
 </section>
