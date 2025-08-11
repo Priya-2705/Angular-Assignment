@@ -2,8 +2,6 @@
   "version": 2,
   "framework": "angular",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/angular-assignment",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "outputDirectory": "dist/angular-assignment/browser",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
