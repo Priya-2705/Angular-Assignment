@@ -31,7 +31,7 @@ This project is a client-side web application built with Angular 20. It includes
 ## 🚀 Deployment
 
 This project is deployed on **Vercel**.  
-Access it here: [Live Demo](https://angular-assignment-livid.vercel.app/) *(Replace with your actual Vercel domain if different)*
+Access it here: [Live Demo](https://angular-assignment-gilt.vercel.app/) *(Replace with your actual Vercel domain if different)*
 
 ---
 
