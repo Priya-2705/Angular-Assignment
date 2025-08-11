@@ -1,20 +1,19 @@
-<<<<<<< HEAD
-
-````markdown
 # Angular Client-Side Web Application
 
-This project is a client-side web application built with Angular 20. It includes navigation between pages, API data fetching using an Angular service with HttpClient, and a reactive form with validation.
+**Author:** Tejeswi Devi Priya Pillarisetty  
+
+This project is a client-side web application built with Angular 20. It includes navigation between multiple pages, API data fetching using an Angular service with HttpClient, and a reactive form with validation.
 
 ---
 
 ## 📌 Project Details
 
-- **Home Page** — Displays a welcome message, links to other pages, and recent feedback submissions.
-- **API Data Page** — Fetches and displays posts from the JSONPlaceholder public API.
-- **Form Page** — Reactive form with validation for Name, Email, Message, and Agreement checkbox. Submissions are stored in a shared service and shown on the Home page.
+- **Home Page** — Displays a welcome message, navigation links to other pages, and a list of recent form submissions.
+- **API Data Page** — Fetches and displays data (posts) from the JSONPlaceholder public API.
+- **Form Page** — Reactive form with validation for Name, Email, Message, and an Agreement checkbox. Submissions are stored in a shared service and displayed on the Home page.
 - **Routing** — Client-side navigation using Angular Router.
-- **Styling** — Custom CSS for a clean, responsive UI.
-- **Deployment** — Hosted on a public platform (GitHub Pages / Vercel / Netlify).
+- **Styling** — Custom CSS for a clean and responsive user interface.
+- **Deployment** — Hosted on Vercel for public access.
 
 ---
 
@@ -29,39 +28,30 @@ This project is a client-side web application built with Angular 20. It includes
 
 ---
 
+## 🚀 Deployment
 
-
-## 🚀 How to Deploy to GitHub Pages
-
-1. **Add the deployment package** (only once)
-
-   ```bash
-   ng add angular-cli-ghpages
-   ```
-
-2. **Build with correct base href** (replace `YOUR_REPO_NAME` with your GitHub repo name)
-
-   ```bash
-   ng build --configuration production --base-href="/YOUR_REPO_NAME/"
-   ```
-
-3. **Deploy to `gh-pages` branch**
-
-   ```bash
-   npx angular-cli-ghpages --dir=dist/angular-assignment
-   ```
-
-4. **Enable GitHub Pages**
-
-   * Go to your repository on GitHub → **Settings** → **Pages**
-   * Source: `gh-pages` branch, `/ (root)`
-   * Save and access your site at:
-
-     ```
-
-(https://saisrilaxmi7.github.io/angular_assignment2/)     ```
+This project is deployed on **Vercel**.  
+Access it here: [Live Demo](https://angular-assignment-livid.vercel.app/) *(Replace with your actual Vercel domain if different)*
 
 ---
-=======
-# Angular-Assignment
->>>>>>> a97ed46f0a351c0023b119ac977bac44389bde5c
+
+## 🖥 Running Locally
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Priya-2705/Angular-Assignment.git
+   cd Angular-Assignment
+
+2. **Install dependencies**
+   ```bash
+   npm install
+
+3. **Run the development server**
+   ```bash
+   npm start
+
+Open http://localhost:4200/ in your browser.
+
+4. **Build for production**
+   ```bash
+   npm run build
